@@ -3,15 +3,13 @@ package com.kmutpnb.buk.easytour;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +21,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
-import java.sql.SQLData;
 import java.util.ArrayList;
 
 public class ConfirmMytourActivity extends AppCompatActivity {
@@ -66,8 +63,8 @@ public class ConfirmMytourActivity extends AppCompatActivity {
                 objNameValuePairs.add(new BasicNameValuePair(MyManageTable.column_name, strName[i]));
                 objNameValuePairs.add(new BasicNameValuePair(MyManageTable.column_TimeUse, strTimeUse[i]));
                 objNameValuePairs.add(new BasicNameValuePair(MyManageTable.column_DateStart, dateString));
-               // objNameValuePairs.add(new BasicNameValuePair(MyManageTable.column_HrStart, dateString));
-               // objNameValuePairs.add(new BasicNameValuePair(MyManageTable.column_HrEnd, dateString));
+                objNameValuePairs.add(new BasicNameValuePair(MyManageTable.column_HrStart, dateString));
+                objNameValuePairs.add(new BasicNameValuePair(MyManageTable.column_HrEnd, dateString));
 
                 HttpClient objHttpClient = new DefaultHttpClient();
                 HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/puk/php_add_mytour_buk.php");
